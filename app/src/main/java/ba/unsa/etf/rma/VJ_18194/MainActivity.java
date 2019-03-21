@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText tekst = (EditText) findViewById(R.id.editText);
         final ArrayList<String> unosi = new ArrayList<String>();
         final ArrayAdapter<String> adapter;
-        adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, unosi);
+        adapter = new ArrayAdapter<String>(this,R.layout.element_liste,R.id.Itemname,unosi);
         lista.setAdapter(adapter);
         dugme.setOnClickListener(new View.OnClickListener(){
             @Override
