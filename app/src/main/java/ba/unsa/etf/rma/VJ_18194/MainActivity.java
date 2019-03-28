@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button dugme = (Button) findViewById(R.id.button);
-        ListView lista  = (ListView) findViewById(R.id.listView);
+        final ListView lista  = (ListView) findViewById(R.id.listView);
         final EditText tekst = (EditText) findViewById(R.id.editText);
         final ArrayList<Muzicar> unosi = new ArrayList<Muzicar>();
         unosi.add(new Muzicar("Marija Šerifović", "Pop","https://en.wiki" +
@@ -46,8 +46,7 @@ public class MainActivity extends AppCompatActivity {
         final MuzicarAdapter adapter;
         Resources res =getResources();
         adapter = new MuzicarAdapter(this, unosi, res);
-
-
+        lista.setAdapter(adapter);
 
     }
 }

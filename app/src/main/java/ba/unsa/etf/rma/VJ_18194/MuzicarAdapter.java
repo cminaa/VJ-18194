@@ -6,18 +6,19 @@ import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MuzicarAdapter {
+public class MuzicarAdapter extends BaseAdapter {
     private Activity activity;
     private ArrayList<Muzicar> data=null;
     private static LayoutInflater inflater=null;
     public Resources res;
 
-    public MuzicarAdapter(Activity a, ArrayList d,Resources resLocal) {
+    public MuzicarAdapter(Activity a, ArrayList<Muzicar> d,Resources resLocal) {
         activity = a;
         data=d;
         res = resLocal;
@@ -64,7 +65,6 @@ public class MuzicarAdapter {
             holder.zanr=(TextView)vi.findViewById(R.id.zanr);
             holder.image=(ImageView)vi.findViewById(R.id.ikona);
 
-            /************  Set holder with LayoutInflater ************/
             vi.setTag( holder );
         }
         else
@@ -85,7 +85,7 @@ public class MuzicarAdapter {
             holder.zanr.setText( tempValues.getZanr() );
             holder.image.setImageResource(
                     res.getIdentifier(
-                            "com.androidexample.customlistview:drawable/"+tempValues.getIkona()
+                            "ba.unsa.etf.rma.VJ_18194:drawable/"+tempValues.getIkona()
                             ,null,null));
 
 
