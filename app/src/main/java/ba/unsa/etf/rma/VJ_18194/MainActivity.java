@@ -1,7 +1,10 @@
 package ba.unsa.etf.rma.VJ_18194;
 
+import android.content.BroadcastReceiver;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.res.Resources;
+import android.net.ConnectivityManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -89,7 +92,23 @@ unosi.add(marija); unosi.add(marcelo); unosi.add(dugme);
                 handleSendText(intent); // Handle text being sent
             }
         }
+
     }
+    MyBroadcastReceiver risiver=new MyBroadcastReceiver();
+    private IntentFilter filter= new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver(risiver, filter);
+    }
+
+    @Override
+    protected void  onPause(){
+        super.onPause();
+        unregisterReceiver(risiver);
+    }
+
     void handleSendText(Intent intent) {
         String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
         if (sharedText != null) {

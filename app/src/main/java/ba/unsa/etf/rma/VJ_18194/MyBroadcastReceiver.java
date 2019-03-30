@@ -15,10 +15,10 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
                 (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
+        boolean isConnected = (activeNetwork != null &&
+                activeNetwork.isConnected());
         if (!isConnected) {
-            Toast.makeText(context, "There is no internet connection" , Toast.LENGTH_LONG);
+            Toast.makeText(context, "Internet connection lost" , Toast.LENGTH_LONG).show();
         }
     }
 
