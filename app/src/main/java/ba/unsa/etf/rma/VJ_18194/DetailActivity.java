@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
         ArrayAdapter<String> ad = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, getIntent().getStringArrayListExtra("top5"));
         topLista.setAdapter(ad);
 
-
+        //odgovor na klik na stranicu, preusmjeravanje
         web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View viewIn) {
@@ -37,16 +37,15 @@ public class DetailActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        //slanje kliknute pjesme na pretragu na yt
         topLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent sendIntent = new Intent();
-                sendIntent.setAction(Intent.ACTION_SEND);
-                sendIntent.putExtra(Intent.EXTRA_TEXT, ime.getText()+" "+topLista.getItemAtPosition(position));
-                sendIntent.setType("text/plain");
-                if (sendIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(sendIntent);
-                }
+                Intent intent = new Intent(Intent.ACTION_SEARCH);
+                intent.setPackage("com.google.android.youtube");
+                intent.putExtra("query", ime.getText()+" "+topLista.getItemAtPosition(position));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
             }
         });
     }
