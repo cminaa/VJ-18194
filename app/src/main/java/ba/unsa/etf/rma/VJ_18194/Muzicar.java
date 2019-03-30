@@ -1,5 +1,7 @@
 package ba.unsa.etf.rma.VJ_18194;
 
+import java.util.ArrayList;
+
 public class Muzicar {
 
     String imeIPrezime="";
@@ -8,23 +10,22 @@ public class Muzicar {
     String biografija="";
     String ikona="";
 
-    public String getTopLista() {
+    public ArrayList<String> getTopLista() {
         return topLista;
     }
 
-    public void setTopLista(String topLista) {
+    public void setTopLista(ArrayList<String> topLista) {
         this.topLista = topLista;
     }
 
-    String topLista="";
+    ArrayList<String> topLista=new ArrayList<>();
 
-    public Muzicar(String imeIPrezime, String zanr, String webStranica, String biografija, String slika, String lista) {
+    public Muzicar(String imeIPrezime, String zanr, String webStranica, String biografija, String slika) {
         this.imeIPrezime = imeIPrezime;
         this.zanr = zanr;
         this.webStranica = webStranica;
         this.biografija = biografija;
         this.ikona=slika;
-        this.topLista=lista;
     }
 
     public String getImeIPrezime() {
