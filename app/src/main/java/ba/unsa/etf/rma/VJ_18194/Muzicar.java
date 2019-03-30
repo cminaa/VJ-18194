@@ -2,14 +2,29 @@ package ba.unsa.etf.rma.VJ_18194;
 
 public class Muzicar {
 
-    String imeIPrezime="", zanr="", webStranica="", biografija="", ikona="";
+    String imeIPrezime="";
+    String zanr="";
+    String webStranica="";
+    String biografija="";
+    String ikona="";
 
-    public Muzicar(String imeIPrezime, String zanr, String webStranica, String biografija, String slika) {
+    public String getTopLista() {
+        return topLista;
+    }
+
+    public void setTopLista(String topLista) {
+        this.topLista = topLista;
+    }
+
+    String topLista="";
+
+    public Muzicar(String imeIPrezime, String zanr, String webStranica, String biografija, String slika, String lista) {
         this.imeIPrezime = imeIPrezime;
         this.zanr = zanr;
         this.webStranica = webStranica;
         this.biografija = biografija;
         this.ikona=slika;
+        this.topLista=lista;
     }
 
     public String getImeIPrezime() {
